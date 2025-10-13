@@ -1,3 +1,4 @@
+BASE URL = https://crm-server-2idetwzcb-shahinas-projects-d37b8b75.vercel.app
 🔹 User
 
 POST /api/users/register
