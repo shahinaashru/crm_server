@@ -11,7 +11,7 @@ const caseRoutes = require("./src/routes/caseRoutes.js");
 const connectDB = require("./config/db.js");
 const port = process.env.PORT || 3000;
 const dbUrl = process.env.DB_URL;
-// const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL;
 connectDB();
 console.log("Server will run on port:", port);
 console.log("Database URL:", dbUrl);
@@ -22,5 +22,5 @@ app.use("/api/customers", customerRoutes);
 app.use("/api/cases", caseRoutes);
 app.use(errorHandler);
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
+  console.log(`Example app listening on port ${BASE_URL}:${port}`);
 });
