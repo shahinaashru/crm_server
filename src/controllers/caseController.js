@@ -64,7 +64,7 @@ exports.updateCase = asyncHandler(async (req, res) => {
   res.status(201).json({
     status: true,
     message: "Case Details Updated Successfully",
-    Customer: updatedCase,
+    Case: updatedCase,
   });
 });
 exports.getCases = asyncHandler(async (req, res) => {

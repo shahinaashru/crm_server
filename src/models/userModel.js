@@ -19,6 +19,19 @@ const userSchema = new mongoose.Schema(
           "Password must contain at least one uppercase letter, one number, and one special character",
       },
     },
+    email: {
+      type: String,
+      trim: true,
+    },
+    phone_number: {
+      type: String,
+      trim: true,
+      match: /^[0-9]{10,15}$/,
+      unique: true,
+    },
+    address: {
+      type: String,
+    },
     role: {
       type: String,
       enum: ["admin", "user"],

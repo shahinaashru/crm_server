@@ -20,7 +20,7 @@ router.post(
 router.get(
   "/:id",
   protectedRoute,
-  role(["admin"]),
+  role(["user"]),
   customerController.getCustomerById
 );
 router.patch(

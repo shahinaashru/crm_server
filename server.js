@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
+const cors = require("cors");
 require("dotenv").config();
 const axios = require("axios");
 const cookieParser = require("cookie-parser");
@@ -9,9 +10,16 @@ const userRoutes = require("./src/routes/userRoutes.js");
 const customerRoutes = require("./src/routes/customerRoutes.js");
 const caseRoutes = require("./src/routes/caseRoutes.js");
 const connectDB = require("./config/db.js");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const dbUrl = process.env.DB_URL;
 connectDB();
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
 console.log("Server will run on port:", port);
 console.log("Database URL:", dbUrl);
 app.use(express.json());
