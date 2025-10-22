@@ -15,7 +15,10 @@ const dbUrl = process.env.DB_URL;
 connectDB();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://shahinaashru.github.io/crm-frontend",
+    ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
   })
