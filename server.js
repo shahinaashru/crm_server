@@ -25,10 +25,19 @@ console.log("Server will run on port:", port);
 console.log("Database URL:", dbUrl);
 app.use(express.json());
 app.use(cookieParser());
+app.get("/", (req, res) => {
+  res.send("CRM API is running successfully with CORS enabled!");
+});
 app.use("/api/users", userRoutes);
 app.use("/api/customers", customerRoutes);
 app.use("/api/cases", caseRoutes);
 app.use(errorHandler);
-app.listen(port, () => {
-  console.log(`Example app listening on port localhost:${port}`);
-});
+module.exports = app;
+// app.listen(port, () => {
+//   console.log(`Example app listening on port localhost:${port}`);
+// });
+if (process.env.NODE_ENV !== "production") {
+  app.listen(port, () => {
+    console.log(`Server running locally at http://localhost:${port}`);
+  });
+}
