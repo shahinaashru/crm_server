@@ -16,11 +16,17 @@ connectDB();
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://shahinaashru.github.io"],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
+// app.use(
+//   cors({
+//     origin: ["http://localhost:5173", "https://shahinaashru.github.io"],
+//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//   })
+// );
 console.log("Server will run on port:", port);
 console.log("Database URL:", dbUrl);
 app.use(express.json());
